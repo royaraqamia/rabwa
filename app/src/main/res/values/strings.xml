@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">رَبْوَة</string>
+    
+    <!-- Localized Error Messages (Zero Raw Exception Leakage) -->
+    <string name="error_network_generic">تعذر الاتصال بالشبكة. يرجى التحقق من اتصال الإنترنت والمحاولة مجدداً.</string>
+    <string name="error_no_internet">لا يوجد اتصال بالإنترنت. يرجى التحقق من اتصال الشبكة والمحاولة مجدداً.</string>
+    <string name="error_database_generic">تعذر حفظ أو قراءة البيانات محلياً. يرجى المحاولة مرة أخرى.</string>
+    <string name="error_validation_generic">بيانات الإدخال غير صالحة. يرجى التأكد من صحة الحقول والمحاولة مجدداً.</string>
+    <string name="error_unauthorized_generic">ليس لديك صلاحية لتنفيذ هذا الإجراء.</string>
+    <string name="error_not_found_generic">العنصر المطلوب غير موجود أو تم حذفه.</string>
+    <string name="error_unknown_generic">حدث خطأ غير متوقع أثناء معالجة طلبك. يرجى المحاولة لاحقاً.</string>
+    <string name="error_auth_generic">فشلت عملية المصادقة. يرجى التحقق من بيانات الدخول والمحاولة مجدداً.</string>
+    <string name="error_remote_db_generic">تعذر الاتصال بقاعدة البيانات السحابية. يرجى المحاولة لاحقاً.</string>
+    <string name="error_storage_generic">تعذر معالجة الملف في التخزين السحابي.</string>
+    
+    <!-- Network & Offline Status Indicators -->
+    <string name="network_status_connected">متصل بالإنترنت</string>
+    <string name="network_status_disconnected">العمل دون اتصال</string>
+    <string name="network_status_checking">جارٍ التحقق من الاتصال...</string>
+    <string name="offline_mode_banner">العمل دون اتصال • يتم الحفظ محلياً في رَبْوَة</string>
+    <string name="sync_status_all_synced">كافة البيانات متزامنة</string>
+    <string name="sync_status_pending">%1$d بانتظار المزامنة</string>
+    <string name="sync_status_syncing">جارٍ المزامنة...</string>
+    <string name="sync_action_sync_now">مزامنة الآن</string>
+    
+    <!-- UI Actions and Accessibility -->
+    <string name="action_retry">إعادة المحاولة</string>
+    <string name="action_dismiss">إغلاق</string>
+    <string name="action_back">رجوع</string>
+    <string name="action_back_to_home">العودة للرئيسية</string>
+    <string name="cd_error_alert">تنبيه خطأ</string>
+
+    <!-- Navigation & Tabs -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_profile">الملف الشخصي</string>
+
+    <!-- Profile & Auth Status Screen -->
+    <string name="profile_title">الملف الشخصي</string>
+    <string name="auth_status_title">حالة الحساب</string>
+    <string name="auth_status_authenticated">مسجل الدخول</string>
+    <string name="auth_status_guest">وضع الزائر (غير مسجل)</string>
+    <string name="auth_guest_desc">يمكنك استخدام رَبْوَة وتدوين ملاحظاتك بكامل المزايا محلياً دون الحاجة لتسجيل الدخول. سجّل الدخول للمزامنة السحابية.</string>
+    <string name="auth_action_login">تسجيل الدخول / إنشاء حساب</string>
+    <string name="auth_action_logout">تسجيل الخروج</string>
+    <string name="auth_user_id_label">معرّف المستخدم</string>
+    <string name="auth_email_label">البريد الإلكتروني</string>
+    <string name="auth_provider_label">طريقة التسجيل</string>
+    <string name="auth_cloud_sync_active">المزامنة السحابية مفعّلة</string>
+
+    <!-- Login & Sign Up Screen -->
+    <string name="login_screen_title">تسجيل الدخول</string>
+    <string name="signup_screen_title">إنشاء حساب جديد</string>
+    <string name="tab_sign_in">تسجيل الدخول</string>
+    <string name="tab_sign_up">إنشاء حساب</string>
+    <string name="input_email_label">البريد الإلكتروني</string>
+    <string name="input_email_placeholder">user@example.com</string>
+    <string name="input_password_label">كلمة المرور</string>
+    <string name="input_password_placeholder">••••••••</string>
+    <string name="action_sign_in">تسجيل الدخول</string>
+    <string name="action_sign_up">إنشاء حساب جديد</string>
+    <string name="action_forgot_password">نسيت كلمة المرور؟</string>
+    <string name="action_google_sign_in">المتابعة باستخدام Google</string>
+    <string name="action_google_add_account">إضافة حساب Google إلى الجهاز</string>
+    <string name="action_switch_to_email">المتابعة بالبريد الإلكتروني</string>
+    <string name="action_continue_as_guest">المتابعة كزائر دون تسجيل دخول</string>
+    <string name="or_divider_text">أو</string>
+    
+    <!-- Forgot Password Dialog -->
+    <string name="forgot_password_title">استعادة كلمة المرور</string>
+    <string name="forgot_password_desc">أدخل بريدك الإلكتروني وسنرسل لك رابطاً لإعادة تعيين كلمة المرور.</string>
+    <string name="action_send_reset_link">إرسال رابط الاستعادة</string>
+    <string name="action_cancel">إلغاء</string>
+
+    <!-- Loading and Progress Indicators -->
+    <string name="loading_generic">جارٍ التحميل...</string>
+    <string name="loading_saving">جارٍ الحفظ...</string>
+    <string name="loading_database_operation">جارٍ معالجة البيانات...</string>
+    <string name="loading_clearing">جارٍ مسح الملاحظات...</string>
+    <string name="cd_loading_progress">مؤشر التقدم قيد المعالجة</string>
+
+    <!-- Push Notifications (Supabase + FCM) -->
+    <string name="notifications_title">الإشعارات والتنبيهات</string>
+    <string name="notifications_channel_name">تنبيهات رَبْوَة العامة</string>
+    <string name="notifications_channel_desc">تنبيهات المزامنة السحابية وتحديثات النظام</string>
+    <string name="notifications_permission_title">إشعارات السحابة</string>
+    <string name="notifications_permission_desc">تفعيل استلام الإشعارات عند تحديث البيانات والمزامنة.</string>
+    <string name="notifications_enable_action">تفعيل الإشعارات</string>
+    <string name="notifications_status_enabled">الإشعارات مفعّلة على هذا الجهاز</string>
+    <string name="notifications_status_disabled">الإشعارات معطلة</string>
+    <string name="notifications_token_registered">تم تسجيل معرف الجهاز</string>
+    <string name="notifications_token_syncing">جارٍ تسجيل معرف الجهاز السحابي...</string>
+    <string name="notifications_token_unregistered">معرف الجهاز غير مسجل (سجل الدخول للمزامنة)</string>
+    <string name="notifications_token_label">معرف الجهاز</string>
+    <string name="notifications_refresh_token">تحديث معرف الجهاز</string>
+
+    <!-- Theme Settings (Light / Dark Mode Toggle) -->
+    <string name="theme_settings_title">المظهر</string>
+    <string name="theme_dark_mode_title">الوضع الداكن</string>
+    <string name="theme_dark_mode_desc">التبديل بين المظهر الفاتح والداكن للتطبيق</string>
+    <string name="theme_status_dark">الوضع الداكن مفعّل</string>
+    <string name="theme_status_light">الوضع الفاتح مفعّل</string>
+
+    <!-- QR Code Scanner -->
+    <string name="qr_scanner_title">مسح رمز QR</string>
+    <string name="qr_scanner_action">مسح QR</string>
+    <string name="qr_permission_required">إذن الكاميرا مطلوب لمسح رمز QR</string>
+    <string name="qr_copied_to_clipboard">تم النسخ إلى الحافظة</string>
+    <string name="qr_action_copy">نسخ</string>
+    <string name="qr_action_open_url">فتح الرابط</string>
+    <string name="qr_action_rescan">مسح مجدداً</string>
+</resources>

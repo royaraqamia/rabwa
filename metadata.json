@@ -1,0 +1,6 @@
+{
+  "name": "رَبْوَة",
+  "description": "تطبيق رَبْوَة المتكامل",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
