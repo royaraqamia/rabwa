@@ -47,3 +47,10 @@
 # --- Supabase & Ktor ---
 -keep class io.github.jan.supabase.** { *; }
 -keep class io.ktor.** { *; }
+
+# Ktor ships a JVM-only debugger detector that references java.lang.management.*,
+# which does not exist on Android. The class is never reached at runtime, but
+# keeping io.ktor.** makes R8 try to resolve it. Suppress the dangling refs.
+# See app/build/outputs/mapping/release/missing_rules.txt.
+-dontwarn java.lang.management.ManagementFactory
+-dontwarn java.lang.management.RuntimeMXBean
