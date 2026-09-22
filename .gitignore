@@ -17,4 +17,3 @@ local.properties
 .env
 debug.keystore
 opencode.json
-.agents/
