@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
 # رَبْوَة — Android app
 
 Kotlin + Jetpack Compose Android application. Built with Gradle; no Android Studio required.
@@ -105,5 +101,5 @@ Remove-Item "$env:USERPROFILE\.gradle\caches\build-cache-1" -Recurse -Force
 
 ## Publishing
 
-If you have already published this app in AI Studio, [request an upload key reset](https://support.google.com/googleplay/android-developer/answer/9842756#zippy=%2Crequest-an-upload-key-reset)
+If you have already published this app, [request an upload key reset](https://support.google.com/googleplay/android-developer/answer/9842756#zippy=%2Crequest-an-upload-key-reset)
 in Google Play Console.
