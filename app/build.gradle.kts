@@ -23,9 +23,6 @@ android {
     versionName = "1.0"
     resourceConfigurations.addAll(listOf("en", "ar"))
 
-    manifestPlaceholders["authHost"] = "royaraqamia.com"
-    manifestPlaceholders["authScheme"] = "https"
-
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
@@ -83,6 +80,9 @@ secrets {
   propertiesFileName = ".env"
   defaultPropertiesFileName = ".env.example"
   ignoreList.add("FIREBASE_APPCHECK_DEBUG_TOKEN")
+  // Developer tooling secrets that must never be compiled into BuildConfig,
+  // and therefore never shipped inside the APK.
+  ignoreList.add("GITHUB_TOKEN")
 }
 
 googleServices { missingGoogleServicesStrategy = MissingGoogleServicesStrategy.WARN }
