@@ -59,7 +59,18 @@ Override with `-Device <serial>`.
 
 ### Release signing
 
-Release builds require an upload keystore. Provide credentials via environment variables:
+`release.ps1` is the supported path: it prompts for the upload keystore password
+(never echoed), exports the signing env vars `app/build.gradle.kts` reads, builds,
+and verifies the signature and package.
+
+```powershell
+.\release.ps1                          # signed APK
+.\release.ps1 -Bundle                  # signed .aab for Play
+.\release.ps1 -Bump -VersionName 1.1.0   # bump versionCode + set versionName, then build
+.\release.ps1 -Clean                   # clean first
+```
+
+The equivalent manual invocation:
 
 ```powershell
 $env:KEYSTORE_PATH="D:\keys\my-upload-key.jks"   # defaults to <rootDir>\my-upload-key.jks
@@ -67,6 +78,13 @@ $env:STORE_PASSWORD="..."
 $env:KEY_PASSWORD="..."
 .\gradlew.bat assembleRelease
 ```
+
+`versionCode` must increase on every Play upload (`release.ps1 -Bump` does this; commit the
+bump before tagging). Back up the keystore, and separately its password, or the app can never
+be updated: `.\backup-keystore.ps1 -To E:\backups\rabwa`. CI mirrors this — `.github/workflows/release.yml`
+builds the APK and AAB on `v*` tags using repository secrets (see the workflow header).
+`.\set-ci-secrets.ps1` uploads the two keystore passwords as secrets (prompts securely; requires
+Python + PyNaCl).
 
 Debug builds use the committed-in-working-tree `debug.keystore` (git-ignored; regenerate if missing).
 

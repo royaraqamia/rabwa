@@ -24,9 +24,21 @@
 .PARAMETER NoVerify
     Skip the post-build signature and package verification.
 
+.PARAMETER Bump
+    Increment versionCode in app/build.gradle.kts before building. Commit the
+    change afterwards; Play rejects an upload that reuses an existing versionCode.
+
+.PARAMETER VersionName
+    Set versionName in app/build.gradle.kts (e.g. -VersionName 1.1.0). Pair it
+    with -Bump when cutting a release.
+
 .EXAMPLE
     .\release.ps1
     Prompt for the password, then build a signed release APK.
+
+.EXAMPLE
+    .\release.ps1 -Bump -VersionName 1.1.0
+    Bump versionCode, set versionName, then build a signed APK.
 
 .EXAMPLE
     .\release.ps1 -Bundle
@@ -41,7 +53,9 @@ param(
     [string]$Keystore,
     [switch]$Clean,
     [switch]$Bundle,
-    [switch]$NoVerify
+    [switch]$NoVerify,
+    [switch]$Bump,
+    [string]$VersionName
 )
 
 $ErrorActionPreference = 'Stop'
@@ -68,6 +82,34 @@ if (-not $plain) { throw 'No password supplied.' }
 $env:KEYSTORE_PATH  = (Resolve-Path -LiteralPath $Keystore).Path
 $env:STORE_PASSWORD = $plain
 $env:KEY_PASSWORD   = $plain
+
+$buildFile = Join-Path $Root 'app\build.gradle.kts'
+if ($Bump -or $VersionName) {
+    if (-not (Test-Path -LiteralPath $buildFile)) { throw "Build file not found: $buildFile" }
+    $bytes  = [IO.File]::ReadAllBytes($buildFile)
+    $hasBom = $bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF
+    $text   = [IO.File]::ReadAllText($buildFile)
+
+    if ($Bump) {
+        $codeRe = [regex]'versionCode\s*=\s*(\d+)'
+        $m = $codeRe.Match($text)
+        if (-not $m.Success) { throw 'versionCode not found in app/build.gradle.kts.' }
+        $newCode = [int]$m.Groups[1].Value + 1
+        $text = $codeRe.Replace($text, "versionCode = $newCode", 1)
+        Write-Host "versionCode: $($m.Groups[1].Value) -> $newCode" -ForegroundColor Yellow
+    }
+
+    if ($VersionName) {
+        $nameRe = [regex]'versionName\s*=\s*"[^"]*"'
+        if (-not $nameRe.IsMatch($text)) { throw 'versionName not found in app/build.gradle.kts.' }
+        $text = $nameRe.Replace($text, "versionName = `"$VersionName`"", 1)
+        Write-Host "versionName: -> $VersionName" -ForegroundColor Yellow
+    }
+
+    [IO.File]::WriteAllText($buildFile, $text, (New-Object System.Text.UTF8Encoding($hasBom)))
+    Write-Host 'Commit app/build.gradle.kts before tagging the release.' -ForegroundColor DarkGray
+    Write-Host ''
+}
 
 $task = if ($Bundle) { 'bundleRelease' } else { 'assembleRelease' }
 
