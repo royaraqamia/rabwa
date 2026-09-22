@@ -82,9 +82,12 @@ $env:KEY_PASSWORD="..."
 `versionCode` must increase on every Play upload (`release.ps1 -Bump` does this; commit the
 bump before tagging). Back up the keystore, and separately its password, or the app can never
 be updated: `.\backup-keystore.ps1 -To E:\backups\rabwa`. CI mirrors this — `.github/workflows/release.yml`
-builds the APK and AAB on `v*` tags using repository secrets (see the workflow header).
-`.\set-ci-secrets.ps1` uploads the two keystore passwords as secrets (prompts securely; requires
-Python + PyNaCl).
+builds the APK and AAB on `v*` tags using repository secrets and publishes a GitHub Release
+carrying both plus the R8 `mapping.txt`, so artifacts outlive the 90-day workflow-artifact
+retention. All actions there are pinned to commit SHAs; releases are deliberate (a `v*` tag or a
+manual `workflow_dispatch`, with a `dry_run` input), never per-merge — a Play `versionCode` can
+never be reused. `.\set-ci-secrets.ps1` uploads the two keystore passwords as secrets (prompts
+securely; requires Python + PyNaCl).
 
 Debug builds use the committed-in-working-tree `debug.keystore` (git-ignored; regenerate if missing).
 
