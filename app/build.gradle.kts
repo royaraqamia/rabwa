@@ -11,12 +11,12 @@ plugins {
 }
 
 android {
-  namespace = "com.example"
+  namespace = "com.royaraqamia.rabwa"
   compileSdk = 36
   buildToolsVersion = "36.1.0"
 
   defaultConfig {
-    applicationId = "com.aistudio.arabickeyboard.asdfgh"
+    applicationId = "com.royaraqamia.rabwa"
     minSdk = 24
     targetSdk = 36
     versionCode = 1

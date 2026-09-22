@@ -47,8 +47,8 @@ param(
     [switch]$NoClear
 )
 
-$Package  = 'com.aistudio.arabickeyboard.asdfgh'
-$Activity = 'com.example.MainActivity'
+$Package  = 'com.royaraqamia.rabwa'
+$Activity = 'com.royaraqamia.rabwa.MainActivity'
 $Root     = $PSScriptRoot
 
 function Resolve-Adb {

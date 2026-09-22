@@ -12,7 +12,7 @@ concise; update it whenever you change build, tooling, or architectural conventi
 - **Architecture:** layered Clean Architecture (core / data / domain / presentation / ui).
 - **Backend:** Supabase (Auth, PostgREST, Storage, Realtime) + Firebase Cloud Messaging.
 - **Min / target / compile SDK:** 24 / 36 / 36. `buildToolsVersion = "36.1.0"`.
-- **Namespace:** `com.example` · **Application ID:** `com.aistudio.arabickeyboard.asdfgh`.
+- **Namespace:** `com.royaraqamia.rabwa` · **Application ID:** `com.royaraqamia.rabwa`.
 
 ## Toolchain & Prerequisites
 

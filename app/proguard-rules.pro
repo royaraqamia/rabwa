@@ -35,14 +35,14 @@
 
 -keep class *_Impl extends androidx.room.RoomDatabase { *; }
 -keep class *_Impl implements * { *; }
--keep class com.example.data.local.** { *; }
+-keep class com.royaraqamia.rabwa.data.local.** { *; }
 -dontwarn androidx.room.paging.**
 
 # --- Kotlinx Serialization & Models ---
 -keepattributes *Annotation*, InnerClasses
 -keep @kotlinx.serialization.Serializable class * { *; }
--keep class com.example.data.remote.dto.** { *; }
--keep class com.example.domain.model.** { *; }
+-keep class com.royaraqamia.rabwa.data.remote.dto.** { *; }
+-keep class com.royaraqamia.rabwa.domain.model.** { *; }
 
 # --- Supabase & Ktor ---
 -keep class io.github.jan.supabase.** { *; }

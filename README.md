@@ -75,8 +75,8 @@ Equivalent manual steps:
 $adb = "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe"
 & $adb connect 127.0.0.1:5555
 .\gradlew.bat installDebug
-& $adb shell am start -n "com.aistudio.arabickeyboard.asdfgh/com.example.MainActivity"
-& $adb logcat --pid=$((& $adb shell pidof -s com.aistudio.arabickeyboard.asdfgh).Trim())
+& $adb shell am start -n "com.royaraqamia.rabwa/com.royaraqamia.rabwa.MainActivity"
+& $adb logcat --pid=$((& $adb shell pidof -s com.royaraqamia.rabwa).Trim())
 ```
 
 ## Notes for restricted networks
